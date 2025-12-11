@@ -1,0 +1,616 @@
+
+<!DOCTYPE html>  <html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="preconnect" href="https://fonts.googleapis.com">  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">  
+    <title>MemePublishing</title>  
+    <link rel="stylesheet" href="css/style.css">   
+</head>  
+<body>  <header class="header-dark-style-centered">  
+    <div class="header-top-row">  
+          
+        <div class="header-left-area">  
+            <a href="#home" class="site-title">MEME PUBLISHING</a>  
+        </div>
+
+<div class="logo-center">  
+    <a href="#" class="logo-text" onclick="scrollToTop(event)">#MEMEMANIA</a>  
+</div>  <div class="header-right-area">  
+<nav class="nav-links-dark">
+    <a href="#gallery-start">ГАЛЕРЕЯ</a>
+    <a href="#upload">ЗАГРУЗИТЬ</a>
+    <a href="#generator-start">ГЕНЕРАТОР</a>
+    <a href="#MemeSite" id="nav-about-link">О САЙТЕ</a>
+</nav>
+                </nav>  
+                <a href="#login" class="login-button-dark">ВОЙТИ</a>  
+            </div>  
+        </div>  <div class="header-search-container">  
+        <input type="text" id="meme-search" placeholder="Введите ключевое слово или тег для поиска...">  
+        <button id="search-btn">Искать</button>  
+        <div id="search-message" class="search-message">  
+            Совпадений не найдено. 🐦  
+        </div>  
+    </div>  
+</header>  
+
+<section class="intro-section-dark">  
+    <div class="intro-content-wrapper">  
+          
+        <div class="intro-header-content">  
+            <div class="intro-text-area">  
+                <h1 class="intro-hashtag">#MemeGallery</h1>  
+                <p class="intro-description">  
+                    Галерея отборных мемов, отобранных сообществом.<br>  
+                    Найдите, вдохновитесь или предложите свой шедевр.  
+                </p>  
+            </div>  
+      <div class="filter-bar">  
+<button class="filter-btn active-filter" data-sort="views">Просмотры</button>  
+<button class="filter-btn" data-sort="likes">Лайки</button>
+
+</div>  
+        </div>  
+    </section>  <main class="meme-main-content">  
+    <div id="gallery-start"></div>   
+    <section class="meme-gallery">  
+          
+<div class="meme-row">  
+    <div class="meme-card" data-views="1200" data-likes="450">  
+        <img src="gallery/0u6b801ff1-1e3d4d53-c18f0260.jpg">  
+        <div class="card-footer">  
+            <span class="views">👁️ 1 249</span>  
+            <span class="likes">👍 450</span>  
+        </div>  
+          
+        <div class="card-tags">  
+            <a href="#tag-cats" class="tag-link">#Психопатыч</a>  
+            <a href="#tag-reaction" class="tag-link">#Мем</a>  
+            <a href="#tag-classic" class="tag-link">#Смешнявка</a>  
+        </div>  
+    </div>  
+
+    <div class="meme-card" data-views="800" data-likes="210">  
+        <img src="gallery/images.jpeg">  
+        <div class="card-footer">  
+            <span class="views">👁️ 800</span>  
+            <span class="likes">👍 489</span>  
+        </div>  
+        <div class="card-tags">  
+            <a href="#tag-dev" class="tag-link">#Мем</a>  
+            <a href="#tag-fail" class="tag-link">#Псехушка</a>  
+            <a href="#tag-fail" class="tag-link">#Пес</a>  
+        </div>  
+    </div>  
+      
+    <div class="meme-card" data-views="1100" data-likes="578">  
+        <img src="gallery/images.jpg.png">  
+        <div class="card-footer">  
+            <span class="views">👁️ 1 238</span>  
+            <span class="likes">👍 887</span>  
+        </div>  
+        <div class="card-tags">  
+            <a href="#tag-dev" class="tag-link">#орешки биг боб</a>  
+            <a href="#tag-fail" class="tag-link">#Мем</a>  
+            <a href="#tag-fail" class="tag-link">#Бешаная белка</a>  
+        </div>  
+    </div>  
+      
+    <div class="meme-card" data-views="987" data-likes="343">  
+        <img src="gallery/PolishCowMeme.jpg">  
+        <div class="card-footer">  
+            <span class="views">👁️ 987</span>  
+            <span class="likes">👍 120</span>  
+        </div>  
+        <div class="card-tags">  
+            <a href="#tag-dev" class="tag-link">#Польская корова</a>  
+            <a href="#tag-fail" class="tag-link">#2022 год</a>  
+            <a href="#tag-fail" class="tag-link">#Смешнявка</a>  
+        </div>  
+    </div>  
+</div>  
+  
+<div class="meme-row hidden-row">  
+    <div class="meme-card" data-views="768" data-likes="255"><img src="gallery/hehe.jpg">  
+        <div class="card-footer"><span class="views">👁️ 768</span><span class="likes">👍 675</span></div>  
+        <div class="card-tags"><a href="#" class="tag-link">#Коты</a></div>  
+    </div>  
+    <div class="meme-card" data-views="555" data-likes="134"><img src="gallery/chill guy.jpeg">  
+        <div class="card-footer"><span class="views">👁️ 555</span><span class="likes">👍 134</span></div>  
+        <div class="card-tags"><a href="#" class="tag-link">#чилловый парень</a></div>  
+    </div>  
+    <div class="meme-card" data-views="2200" data-likes="1500"><img src="gallery/pesik.jpg">  
+        <div class="card-footer"><span class="views">👁️ 2 344</span><span class="likes">👍 1 561</span></div>  
+        <div class="card-tags"><a href="#" class="tag-link">#Пес</a></div>  
+    </div>  
+    <div class="meme-card" data-views="3400" data-likes="2500"><img src="gallery/sozvon.jpg">  
+        <div class="card-footer"><span class="views">👁️ 3 433</span><span class="likes">👍 1 478</span></div>  
+        <div class="card-tags"><a href="#" class="tag-link">#созвон</a></div>  
+    </div>  
+</div>  
+  
+<div class="meme-row hidden-row">  
+    <div class="meme-card" data-views="947" data-likes="679"><img src="gallery/tatarstan.jpg">  
+        <div class="card-footer"><span class="views">👁️ 947</span><span class="likes">👍 679</span></div>  
+        <div class="card-tags"><a href="#" class="tag-link">#попугай</a></div>  
+    </div>  
+    <div class="meme-card" data-views="4800" data-likes="3200"><img src="gallery/umnii.jpeg">  
+        <div class="card-footer"><span class="views">👁️ 4 809</span><span class="likes">👍 2 345</span></div>  
+        <div class="card-tags"><a href="#" class="tag-link">#умный человек в очках</a></div>  
+    </div>  
+    <div class="meme-card" data-views="768" data-likes="431"><img src="gallery/shrek.jpeg">  
+        <div class="card-footer"><span class="views">👁️ 768</span><span class="likes">👍 231</span></div>  
+        <div class="card-tags"><a href="#" class="tag-link">#шрек</a></div>  
+        <div class="card-tags"><a href="#" class="tag-link">#мексиканский шрек</a></div>  
+    </div>  
+    <div class="meme-card" data-views="1100" data-likes="900"><img src="gallery/kot.jpeg">  
+        <div class="card-footer"><span class="views">👁️ 1 112</span><span class="likes">👍 900</span></div>  
+        <div class="card-tags"><a href="#" class="tag-link">#Коты</a></div>  
+    </div>  
+</div>  
+  
+<div class="meme-row hidden-row">  
+    <div class="meme-card" data-views="725" data-likes="455"><img src="gallery/zhak.jpg">  
+        <div class="card-footer"><span class="views">👁️ 725</span><span class="likes">👍 155</span></div>  
+        <div class="card-tags"><a href="#" class="tag-link">#Жак Фреско</a></div>  
+    </div>  
+    <div class="meme-card" data-views="2500" data-likes="1300"><img src="gallery/jarvis.jpeg">  
+        <div class="card-footer"><span class="views">👁️ 2 567</span><span class="likes">👍 2 355</span></div>  
+        <div class="card-tags"><a href="#" class="tag-link">#джарвис</a></div>  
+    </div>  
+    <div class="meme-card" data-views="122" data-likes="55"><img src="gallery/lisiy.jpeg">  
+        <div class="card-footer"><span class="views">👁️ 122</span><span class="likes">👍 55</span></div>  
+        <div class="card-tags"><a href="#" class="tag-link">#лысый</a></div>  
+    </div>  
+    <div class="meme-card" data-views="1900" data-likes="1000"><img src="gallery/leto.jpeg">  
+        <div class="card-footer"><span class="views">👁️ 1 999</span><span class="likes">👍 1 120</span></div>  
+        <div class="card-tags"><a href="#" class="tag-link">#чисто на лето</a></div>  
+    </div>  
+</div>
+
+</section>  
+    </main>  <section class="load-more-section">  
+    <a href="javascript:void(0)" id="load-more-btn" class="load-more-button">  
+        ЗАГРУЗИТЬ ЕЩЁ МЕМЫ  
+    </a>  
+</section>  
+
+<div id="lightbox" class="lightbox">  
+    <span class="close-btn">&times;</span>  
+    <img class="lightbox-content" id="lightbox-img" src="">  
+</div>  
+
+<section class="generator-section" id="generator-start">  
+    <div class="generator-content-wrapper">  
+        <h1 class="generator-hashtag">#MemeGenerator</h1>  
+          
+        <div class="meme-editor-container">  
+            <div class="editor-controls">  
+                <h2>Настройки</h2>  
+
+          <div class="control-group">  
+                    <label for="image-upload" class="control-label">Фоновое изображение:</label>  
+                    <input type="file" id="image-upload" accept="image/*">  
+                    <button id="clear-canvas-btn" class="editor-btn delete-btn">Очистить холст</button>  
+                </div>  
+
+                <div class="control-group">  
+                    <label for="top-text" class="control-label">Верхний текст:</label>  
+                    <input type="text" id="top-text" placeholder="Введите верхний текст">  
+                </div>  
+
+                <div class="control-group">  
+                    <label for="bottom-text" class="control-label">Нижний текст:</label>  
+                    <input type="text" id="bottom-text" placeholder="Введите нижний текст">  
+                </div>  
+
+                <div class="control-group text-settings">  
+                    <label for="text-color" class="control-label">Цвет текста:</label>  
+                    <input type="color" id="text-color" value="#FFFFFF">  
+                      
+                    <label for="font-size" class="control-label">Размер шрифта:</label>  
+                    <input type="range" id="font-size" min="20" max="100" value="48">  
+                      
+                    <label for="font-family" class="control-label">Шрифт:</label>  
+                    <select id="font-family">  
+                        <option value="Impact">Impact</option>  
+                        <option value="Arial">Arial</option>  
+                        <option value="Verdana">Verdana</option>  
+                        <option value="Oswald">Oswald</option>  
+                        <option value="Montserrat">Montserrat</option>  
+                    </select>  
+                </div>  
+
+                <div class="control-group drawing-tools">  
+                    <label class="control-label">Рисование:</label>  
+                    <div class="drawing-buttons">  
+                        <button id="toggle-draw-btn" class="editor-btn draw-btn">Включить/Выключить</button>  
+                        <input type="color" id="draw-color" value="#FF0000">  
+                        <input type="range" id="draw-width" min="1" max="20" value="5">  
+                        <button id="undo-draw-btn" class="editor-btn">Отменить</button>  
+                    </div>  
+                </div>  
+
+                <div class="control-group download-group">  
+                    <button id="download-meme-btn" class="editor-btn download-btn">Скачать</button>  
+                </div>  
+            </div>  
+
+            <div class="canvas-area">  
+                <canvas id="memeCanvas"></canvas>  
+            </div>  
+        </div>  
+    </div>  
+</section>
+
+<section id="MemeSite" class="generator-section">  
+    <div class="generator-content-wrapper">  
+        <h2 class="generator-hashtag">#MemeSite</h2>  
+        <div class="meme-editor-container" style="display: block; padding: 30px;">  
+            <p style="font-size: 18px; color: var(--text-color-secondary); margin-bottom: 15px;">  
+                Добро пожаловать на **MemeMania** — идеальный сайт для поиска и создания мемов!  
+            </p>  
+            <p style="font-size: 16px; color: var(--text-color-primary);">  
+                Я создал эту платформу для всех, кто любит мемы. Здесь ты можешь не только просматривать и самые смешные и популярные мемы, но и создавать свои собственные шедевры с помощью нашего генератора. Загружайте изображения, добавляйте текст и делитесь своим юмором со всем миром!  
+            </p>  
+        </div>  
+    </div>  
+</section>  
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    /* === ГЛАВНАЯ ДОБАВКА — УНИВЕРСАЛЬНАЯ ПЛАВНАЯ ПРОКРУТКА === */
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+
+            if (!targetId || targetId === '#') return;
+
+            const targetElement = document.querySelector(targetId);
+            if (!targetElement) return;
+
+            e.preventDefault();
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    });
+    /* ======================================================== */
+
+
+    /* --- ВЕСЬ ТВОЙ СУЩЕСТВУЮЩИЙ КОД БЕЗ ИЗМЕНЕНИЙ --- */
+
+    const galleryContainer = document.querySelector('.meme-gallery');
+    const loadMoreBtn = document.querySelector('.load-more-button') || document.getElementById('load-more-btn');
+
+    const navAboutLink = document.getElementById('nav-about-link'); 
+    const scrollToAboutBtn = document.getElementById('scroll-to-about-btn'); 
+    const uploadLink = document.getElementById('upload-link'); 
+    const generatorLink = document.getElementById('generator-link'); 
+
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const searchInput = document.getElementById('meme-search'); 
+    const searchBtn = document.getElementById('search-btn'); 
+    const searchMessage = document.getElementById('search-message'); 
+
+    const allCardsArray = Array.from(document.querySelectorAll('.meme-card'));
+    const cardsPerRow = 4;
+    const totalRows = Math.ceil(allCardsArray.length / cardsPerRow); 
+    const rowsPerClick = 2;
+
+    let currentVisibleRows = 1; 
+    let currentSort = document.querySelector('.filter-btn.active-filter')?.dataset.sort || 'views';
+
+
+    /* --- ДАЛЬШЕ ВСЕ ОСТАЛЬНОЕ БЕЗ ИЗМЕНЕНИЙ (ГАЛЕРЕЯ, LIGHTBOX, ГЕНЕРАТОР, РИСОВАНИЕ И Т.Д.) --- */
+
+    const rebuildGallery = (sortBy, rowsToKeepVisible) => {
+        allCardsArray.sort((a, b) => {
+            const valA = parseInt(a.dataset[sortBy]);
+            const valB = parseInt(b.dataset[sortBy]);
+            if (isNaN(valA) || isNaN(valB)) return 0;
+            return valB - valA;
+        });
+
+        while (galleryContainer.firstChild) {
+            galleryContainer.removeChild(galleryContainer.firstChild);
+        }
+
+        const rowsToShow = Math.min(rowsToKeepVisible, totalRows);
+
+        for (let i = 0; i < totalRows; i++) {
+            const newRow = document.createElement('div');
+            newRow.classList.add('meme-row');
+            if (i >= rowsToShow) newRow.classList.add('hidden-row');
+
+            const cardGroup = allCardsArray.slice(i * cardsPerRow, i * cardsPerRow + cardsPerRow);
+            cardGroup.forEach(card => newRow.appendChild(card));
+            galleryContainer.appendChild(newRow);
+        }
+
+        if (loadMoreBtn) {
+            if (rowsToShow >= totalRows) loadMoreBtn.classList.add('hidden');
+            else loadMoreBtn.classList.remove('hidden');
+        }
+    };
+
+
+    /* --- Lightbox --- */
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const closeBtn = document.getElementsByClassName("close-btn")[0];
+
+    allCardsArray.forEach(card => {
+        const img = card.querySelector('img');
+        img.onclick = function(){
+            lightbox.style.display = "flex";
+            lightboxImg.src = this.src;
+        }
+    });
+
+    closeBtn.onclick = function() { lightbox.style.display = "none"; }
+    window.onclick = function(event) { if (event.target == lightbox) lightbox.style.display = "none"; }
+
+
+    /* --- Поиск --- */
+    const showSearchMessage = () => {
+        searchMessage.classList.add('visible');
+        setTimeout(() => {
+            searchMessage.classList.remove('visible');
+        }, 1000);
+    };
+
+    const executeSearch = () => {
+        const query = searchInput.value.trim();
+        if (query.length === 0) return;
+
+        const normalizedQuery = query.toLowerCase().replace(/#/g, '');
+        let firstMatchCard = null;
+        let firstMatchTagElement = null;
+
+        for (const card of allCardsArray) {
+            const tags = card.querySelectorAll('.tag-link');
+            for (const tag of tags) {
+                const tagText = tag.textContent.trim().toLowerCase().replace(/#/g, '');
+                if (tagText.includes(normalizedQuery)) {
+                    firstMatchCard = card;
+                    firstMatchTagElement = tag;
+                    break;
+                }
+            }
+            if (firstMatchCard) break;
+        }
+
+        if (firstMatchCard) {
+            const cardIndex = allCardsArray.indexOf(firstMatchCard);
+            const requiredVisibleRows = Math.ceil((cardIndex + 1) / cardsPerRow);
+
+            if (requiredVisibleRows > currentVisibleRows) {
+                currentVisibleRows = requiredVisibleRows;
+                rebuildGallery(currentSort, currentVisibleRows);
+            }
+
+            setTimeout(() => {
+                (firstMatchTagElement || firstMatchCard).scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+            }, 100);
+        } else showSearchMessage();
+    };
+
+
+    /* --- Генератор мемов / Canvas / Рисование / Скачивание (оставлено без изменений) --- */
+    const memeCanvas = document.getElementById('memeCanvas');
+    const ctx = memeCanvas.getContext('2d');
+
+    const imageUpload = document.getElementById('image-upload');
+    const clearCanvasBtn = document.getElementById('clear-canvas-btn');
+    const topTextInput = document.getElementById('top-text');
+    const bottomTextInput = document.getElementById('bottom-text');
+    const textColorInput = document.getElementById('text-color');
+    const fontSizeInput = document.getElementById('font-size');
+    const fontFamilySelect = document.getElementById('font-family');
+    const toggleDrawBtn = document.getElementById('toggle-draw-btn');
+    const drawColorInput = document.getElementById('draw-color');
+    const drawWidthInput = document.getElementById('draw-width');
+    const undoDrawBtn = document.getElementById('undo-draw-btn');
+    const downloadMemeBtn = document.getElementById('download-meme-btn');
+
+    let originalImage = null; 
+    let drawHistory = [];
+    let drawingEnabled = false;
+    let isDrawing = false;
+    let lastX = 0, lastY = 0;
+
+    memeCanvas.width = 600;
+    memeCanvas.height = 400;
+
+    const drawMeme = () => {
+        ctx.clearRect(0, 0, memeCanvas.width, memeCanvas.height);
+
+        if (originalImage) {
+            let imgW = originalImage.width;
+            let imgH = originalImage.height;
+            const ratio = imgW / imgH;
+            const canvasRatio = memeCanvas.width / memeCanvas.height;
+
+            if (ratio > canvasRatio) {
+                imgW = memeCanvas.width;
+                imgH = imgW / ratio;
+            } else {
+                imgH = memeCanvas.height;
+                imgW = imgH * ratio;
+            }
+
+            const x = (memeCanvas.width - imgW) / 2;
+            const y = (memeCanvas.height - imgH) / 2;
+
+            ctx.drawImage(originalImage, x, y, imgW, imgH);
+        }
+
+        drawHistory.forEach(path => {
+            ctx.strokeStyle = path.color;
+            ctx.lineWidth = path.width;
+            ctx.lineJoin = 'round';
+            ctx.lineCap = 'round';
+            ctx.beginPath();
+            ctx.moveTo(path.points[0].x, path.points[0].y);
+            path.points.forEach(p => ctx.lineTo(p.x, p.y));
+            ctx.stroke();
+        });
+
+        const topText = topTextInput.value;
+        const bottomText = bottomTextInput.value;
+
+        ctx.font = `bold ${fontSizeInput.value}px ${fontFamilySelect.value}`;
+        ctx.fillStyle = textColorInput.value;
+        ctx.strokeStyle = 'black';
+        ctx.lineWidth = parseInt(fontSizeInput.value) / 16;
+        ctx.textAlign = 'center';
+
+        if (topText) {
+            ctx.strokeText(topText, memeCanvas.width / 2, parseInt(fontSizeInput.value) + 20);
+            ctx.fillText(topText, memeCanvas.width / 2, parseInt(fontSizeInput.value) + 20);
+        }
+
+        if (bottomText) {
+            ctx.strokeText(bottomText, memeCanvas.width / 2, memeCanvas.height - 20);
+            ctx.fillText(bottomText, memeCanvas.width / 2, memeCanvas.height - 20);
+        }
+    };
+
+    imageUpload.addEventListener('change', e => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = ev => {
+            const img = new Image();
+            img.onload = () => {
+                originalImage = img;
+
+                let w = img.width;
+                let h = img.height;
+                const maxW = 800;
+                const maxH = 600;
+
+                if (w > maxW || h > maxH) {
+                    const ratio = w / h;
+                    if (w > maxW) {
+                        w = maxW;
+                        h = w / ratio;
+                    }
+                    if (h > maxH) {
+                        h = maxH;
+                        w = h * ratio;
+                    }
+                }
+
+                memeCanvas.width = w;
+                memeCanvas.height = h;
+                drawHistory = [];
+                drawMeme();
+            };
+            img.src = ev.target.result;
+        };
+        reader.readAsDataURL(file);
+    });
+
+    clearCanvasBtn.addEventListener('click', () => {
+        originalImage = null;
+        drawHistory = [];
+        topTextInput.value = '';
+        bottomTextInput.value = '';
+        memeCanvas.width = 600;
+        memeCanvas.height = 400;
+        ctx.clearRect(0, 0, memeCanvas.width, memeCanvas.height);
+    });
+
+    topTextInput.addEventListener('input', drawMeme);
+    bottomTextInput.addEventListener('input', drawMeme);
+    textColorInput.addEventListener('input', drawMeme);
+    fontSizeInput.addEventListener('input', drawMeme);
+    fontFamilySelect.addEventListener('change', drawMeme);
+
+    toggleDrawBtn.addEventListener('click', () => {
+        drawingEnabled = !drawingEnabled;
+        toggleDrawBtn.classList.toggle('active-draw', drawingEnabled);
+        memeCanvas.style.cursor = drawingEnabled ? 'crosshair' : 'default';
+        if (!drawingEnabled) isDrawing = false;
+    });
+
+    undoDrawBtn.addEventListener('click', () => {
+        drawHistory.pop();
+        drawMeme();
+    });
+
+    memeCanvas.addEventListener('mousedown', e => {
+        if (!drawingEnabled) return;
+        isDrawing = true;
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+        drawHistory.push({
+            color: drawColorInput.value,
+            width: drawWidthInput.value,
+            points: [{ x: lastX, y: lastY }]
+        });
+    });
+
+    memeCanvas.addEventListener('mousemove', e => {
+        if (!isDrawing || !drawingEnabled) return;
+        const path = drawHistory[drawHistory.length - 1];
+        path.points.push({ x: e.offsetX, y: e.offsetY });
+        lastX = e.offsetX;
+        lastY = e.offsetY;
+        drawMeme();
+    });
+
+    memeCanvas.addEventListener('mouseup', () => isDrawing = false);
+    memeCanvas.addEventListener('mouseout', () => isDrawing = false);
+
+    downloadMemeBtn.addEventListener('click', () => {
+        if (!originalImage && !topTextInput.value && !bottomTextInput.value && drawHistory.length === 0) {
+            alert('Сначала создайте мем!');
+            return;
+        }
+
+        const link = document.createElement('a');
+        link.download = 'my-awesome-meme.png';
+        link.href = memeCanvas.toDataURL('image/png');
+        link.click();
+    });
+
+    rebuildGallery(currentSort, currentVisibleRows);
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            filterBtns.forEach(b => b.classList.remove('active-filter'));
+            this.classList.add('active-filter');
+            currentSort = this.dataset.sort;
+            currentVisibleRows = 1;
+            rebuildGallery(currentSort, currentVisibleRows);
+        });
+    });
+
+    if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', e => {
+            e.preventDefault();
+            currentVisibleRows += rowsPerClick;
+            rebuildGallery(currentSort, currentVisibleRows);
+        });
+    }
+
+    searchBtn.addEventListener('click', executeSearch);
+    searchInput.addEventListener('keydown', e => {
+        if (e.key === 'Enter') executeSearch();
+    });
+
+    drawMeme();
+});
+</script>
+</body>  
+</html>
