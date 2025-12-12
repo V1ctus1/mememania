@@ -1,5 +1,5 @@
-
-<!DOCTYPE html>  <html lang="en">  
+<!DOCTYPE html>
+<html lang="en">  
 <head>  
     <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
@@ -7,9 +7,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">  
     <title>MemePublishing</title>  
-    <link rel="stylesheet" href="css/style.css">   
+    <link rel="stylesheet" href="style.css">   
 </head>  
-<body>  <header class="header-dark-style-centered" id="home">
+<body>  
+    
+<header class="header-dark-style-centered" id="home">
     <div class="header-top-row">
         <div class="header-left-area">
             <a class="site-title">MEME PUBLISHING</a>
@@ -49,232 +51,350 @@
                     Найдите, вдохновитесь или предложите свой шедевр.  
                 </p>  
             </div>  
-      <div class="filter-bar">  
-<button class="filter-btn active-filter" data-sort="views">Просмотры</button>  
-<button class="filter-btn" data-sort="likes">Лайки</button>
-
-</div>  
+            <div class="filter-bar">  
+                <button class="filter-btn active-filter" data-sort="views">Просмотры</button>  
+                <button class="filter-btn" data-sort="likes">Лайки</button>
+            </div>  
         </div>  
-    </section>  <main class="meme-main-content">  
-    <div id="gallery-start"></div>   
-    <section class="meme-gallery">  
-          
-<div class="meme-row">  
-    <div class="meme-card" data-views="1200" data-likes="450">  
-        <img src="gallery/0u6b801ff1-1e3d4d53-c18f0260.jpg">  
-        <div class="card-footer">  
-            <span class="views">👁️ 1 249</span>  
-            <span class="likes">👍 450</span>  
-        </div>  
-          
-        <div class="card-tags">  
-            <a href="#tag-cats" class="tag-link">#Психопатыч</a>  
-            <a href="#tag-reaction" class="tag-link">#Мем</a>  
-            <a href="#tag-classic" class="tag-link">#Смешнявка</a>  
-        </div>  
-    </div>  
-
-    <div class="meme-card" data-views="800" data-likes="210">  
-        <img src="gallery/images.jpeg">  
-        <div class="card-footer">  
-            <span class="views">👁️ 800</span>  
-            <span class="likes">👍 489</span>  
-        </div>  
-        <div class="card-tags">  
-            <a href="#tag-dev" class="tag-link">#Мем</a>  
-            <a href="#tag-fail" class="tag-link">#Псехушка</a>  
-            <a href="#tag-fail" class="tag-link">#Пес</a>  
-        </div>  
-    </div>  
-      
-    <div class="meme-card" data-views="1100" data-likes="578">  
-        <img src="gallery/images.jpg.png">  
-        <div class="card-footer">  
-            <span class="views">👁️ 1 238</span>  
-            <span class="likes">👍 887</span>  
-        </div>  
-        <div class="card-tags">  
-            <a href="#tag-dev" class="tag-link">#орешки биг боб</a>  
-            <a href="#tag-fail" class="tag-link">#Мем</a>  
-            <a href="#tag-fail" class="tag-link">#Бешаная белка</a>  
-        </div>  
-    </div>  
-      
-    <div class="meme-card" data-views="987" data-likes="343">  
-        <img src="gallery/PolishCowMeme.jpg">  
-        <div class="card-footer">  
-            <span class="views">👁️ 987</span>  
-            <span class="likes">👍 120</span>  
-        </div>  
-        <div class="card-tags">  
-            <a href="#tag-dev" class="tag-link">#Польская корова</a>  
-            <a href="#tag-fail" class="tag-link">#2022 год</a>  
-            <a href="#tag-fail" class="tag-link">#Смешнявка</a>  
-        </div>  
-    </div>  
-</div>  
-  
-<div class="meme-row hidden-row">  
-    <div class="meme-card" data-views="768" data-likes="255"><img src="gallery/hehe.jpg">  
-        <div class="card-footer"><span class="views">👁️ 768</span><span class="likes">👍 675</span></div>  
-        <div class="card-tags"><a href="#" class="tag-link">#Коты</a></div>  
-    </div>  
-    <div class="meme-card" data-views="555" data-likes="134"><img src="gallery/chill guy.jpeg">  
-        <div class="card-footer"><span class="views">👁️ 555</span><span class="likes">👍 134</span></div>  
-        <div class="card-tags"><a href="#" class="tag-link">#чилловый парень</a></div>  
-    </div>  
-    <div class="meme-card" data-views="2200" data-likes="1500"><img src="gallery/pesik.jpg">  
-        <div class="card-footer"><span class="views">👁️ 2 344</span><span class="likes">👍 1 561</span></div>  
-        <div class="card-tags"><a href="#" class="tag-link">#Пес</a></div>  
-    </div>  
-    <div class="meme-card" data-views="3400" data-likes="2500"><img src="gallery/sozvon.jpg">  
-        <div class="card-footer"><span class="views">👁️ 3 433</span><span class="likes">👍 1 478</span></div>  
-        <div class="card-tags"><a href="#" class="tag-link">#созвон</a></div>  
-    </div>  
-</div>  
-  
-<div class="meme-row hidden-row">  
-    <div class="meme-card" data-views="947" data-likes="679"><img src="gallery/tatarstan.jpg">  
-        <div class="card-footer"><span class="views">👁️ 947</span><span class="likes">👍 679</span></div>  
-        <div class="card-tags"><a href="#" class="tag-link">#попугай</a></div>  
-    </div>  
-    <div class="meme-card" data-views="4800" data-likes="3200"><img src="gallery/umnii.jpeg">  
-        <div class="card-footer"><span class="views">👁️ 4 809</span><span class="likes">👍 2 345</span></div>  
-        <div class="card-tags"><a href="#" class="tag-link">#умный человек в очках</a></div>  
-    </div>  
-    <div class="meme-card" data-views="768" data-likes="431"><img src="gallery/shrek.jpeg">  
-        <div class="card-footer"><span class="views">👁️ 768</span><span class="likes">👍 231</span></div>  
-        <div class="card-tags"><a href="#" class="tag-link">#шрек</a></div>  
-        <div class="card-tags"><a href="#" class="tag-link">#мексиканский шрек</a></div>  
-    </div>  
-    <div class="meme-card" data-views="1100" data-likes="900"><img src="gallery/kot.jpeg">  
-        <div class="card-footer"><span class="views">👁️ 1 112</span><span class="likes">👍 900</span></div>  
-        <div class="card-tags"><a href="#" class="tag-link">#Коты</a></div>  
-    </div>  
-</div>  
-  
-<div class="meme-row hidden-row">  
-    <div class="meme-card" data-views="725" data-likes="455"><img src="gallery/zhak.jpg">  
-        <div class="card-footer"><span class="views">👁️ 725</span><span class="likes">👍 155</span></div>  
-        <div class="card-tags"><a href="#" class="tag-link">#Жак Фреско</a></div>  
-    </div>  
-    <div class="meme-card" data-views="2500" data-likes="1300"><img src="gallery/jarvis.jpeg">  
-        <div class="card-footer"><span class="views">👁️ 2 567</span><span class="likes">👍 2 355</span></div>  
-        <div class="card-tags"><a href="#" class="tag-link">#джарвис</a></div>  
-    </div>  
-    <div class="meme-card" data-views="122" data-likes="55"><img src="gallery/lisiy.jpeg">  
-        <div class="card-footer"><span class="views">👁️ 122</span><span class="likes">👍 55</span></div>  
-        <div class="card-tags"><a href="#" class="tag-link">#лысый</a></div>  
-    </div>  
-    <div class="meme-card" data-views="1900" data-likes="1000"><img src="gallery/leto.jpeg">  
-        <div class="card-footer"><span class="views">👁️ 1 999</span><span class="likes">👍 1 120</span></div>  
-        <div class="card-tags"><a href="#" class="tag-link">#чисто на лето</a></div>  
-    </div>  
-</div>
-
-</section>  
-    </main>  <section class="load-more-section">  
-    <a href="javascript:void(0)" id="load-more-btn" class="load-more-button">  
-        ЗАГРУЗИТЬ ЕЩЁ МЕМЫ  
-    </a>  
-</section>  
-
-<div id="lightbox" class="lightbox">  
-    <span class="close-btn">&times;</span>  
-    <img class="lightbox-content" id="lightbox-img" src="">  
-</div>  
-
-<section class="generator-section" id="generator-start">  
-    <div class="generator-content-wrapper">  
-        <h1 class="generator-hashtag">#MemeGenerator</h1>  
-          
-        <div class="meme-editor-container">  
-            <div class="editor-controls">  
-                <h2>Настройки</h2>  
-
-          <div class="control-group">  
-                    <label for="image-upload" class="control-label">Фоновое изображение:</label>  
-                    <input type="file" id="image-upload" accept="image/*">  
-                    <button id="clear-canvas-btn" class="editor-btn delete-btn">Очистить холст</button>  
-                </div>  
-
-                <div class="control-group">  
-                    <label for="top-text" class="control-label">Верхний текст:</label>  
-                    <input type="text" id="top-text" placeholder="Введите верхний текст">  
-                </div>  
-
-                <div class="control-group">  
-                    <label for="bottom-text" class="control-label">Нижний текст:</label>  
-                    <input type="text" id="bottom-text" placeholder="Введите нижний текст">  
-                </div>  
-
-                <div class="control-group text-settings">  
-                    <label for="text-color" class="control-label">Цвет текста:</label>  
-                    <input type="color" id="text-color" value="#FFFFFF">  
+    </section>  
+    
+    <main class="meme-main-content">  
+        <div id="gallery-start"></div>   
+        <section class="meme-gallery">  
+              
+            <div class="meme-row">  
+                <div class="meme-card" data-views="1200" data-likes="450">  
+                    <img src="gallery/0u6b801ff1-1e3d4d53-c18f0260.jpg">  
+                    <div class="card-footer">  
+                        <span class="views">👁️ 1 249</span>  
+                        <span class="likes">👍 450</span>  
+                    </div>  
                       
-                    <label for="font-size" class="control-label">Размер шрифта:</label>  
-                    <input type="range" id="font-size" min="20" max="100" value="48">  
-                      
-                    <label for="font-family" class="control-label">Шрифт:</label>  
-                    <select id="font-family">  
-                        <option value="Impact">Impact</option>  
-                        <option value="Arial">Arial</option>  
-                        <option value="Verdana">Verdana</option>  
-                        <option value="Oswald">Oswald</option>  
-                        <option value="Montserrat">Montserrat</option>  
-                    </select>  
-                </div>  
-
-                <div class="control-group drawing-tools">  
-                    <label class="control-label">Рисование:</label>  
-                    <div class="drawing-buttons">  
-                        <button id="toggle-draw-btn" class="editor-btn draw-btn">Включить/Выключить</button>  
-                        <input type="color" id="draw-color" value="#FF0000">  
-                        <input type="range" id="draw-width" min="1" max="20" value="5">  
-                        <button id="undo-draw-btn" class="editor-btn">Отменить</button>  
+                    <div class="card-tags">  
+                        <a href="#tag-cats" class="tag-link">#Психопатыч</a>  
+                        <a href="#tag-reaction" class="tag-link">#Мем</a>  
+                        <a href="#tag-classic" class="tag-link">#Смешнявка</a>  
                     </div>  
                 </div>  
 
-                <div class="control-group download-group">  
-                    <button id="download-meme-btn" class="editor-btn download-btn">Скачать</button>  
+                <div class="meme-card" data-views="800" data-likes="210">  
+                    <img src="gallery/images.jpeg">  
+                    <div class="card-footer">  
+                        <span class="views">👁️ 800</span>  
+                        <span class="likes">👍 489</span>  
+                    </div>  
+                    <div class="card-tags">  
+                        <a href="#tag-dev" class="tag-link">#Мем</a>  
+                        <a href="#tag-fail" class="tag-link">#Псехушка</a>  
+                        <a href="#tag-fail" class="tag-link">#Пес</a>  
+                    </div>  
+                </div>  
+                  
+                <div class="meme-card" data-views="1100" data-likes="578">  
+                    <img src="gallery/images.jpg.png">  
+                    <div class="card-footer">  
+                        <span class="views">👁️ 1 238</span>  
+                        <span class="likes">👍 887</span>  
+                    </div>  
+                    <div class="card-tags">  
+                        <a href="#tag-dev" class="tag-link">#орешки биг боб</a>  
+                        <a href="#tag-fail" class="tag-link">#Мем</a>  
+                        <a href="#tag-fail" class="tag-link">#Бешаная белка</a>  
+                    </div>  
+                </div>  
+                  
+                <div class="meme-card" data-views="987" data-likes="343">  
+                    <img src="gallery/PolishCowMeme.jpg">  
+                    <div class="card-footer">  
+                        <span class="views">👁️ 987</span>  
+                        <span class="likes">👍 120</span>  
+                    </div>  
+                    <div class="card-tags">  
+                        <a href="#tag-dev" class="tag-link">#Польская корова</a>  
+                        <a href="#tag-fail" class="tag-link">#2022 год</a>  
+                        <a href="#tag-fail" class="tag-link">#Смешнявка</a>  
+                    </div>  
                 </div>  
             </div>  
+              
+            <div class="meme-row hidden-row">  
+                <div class="meme-card" data-views="768" data-likes="255"><img src="gallery/hehe.jpg">  
+                    <div class="card-footer"><span class="views">👁️ 768</span><span class="likes">👍 675</span></div>  
+                    <div class="card-tags"><a href="#" class="tag-link">#Коты</a></div>  
+                </div>  
+                <div class="meme-card" data-views="555" data-likes="134"><img src="gallery/chill guy.jpeg">  
+                    <div class="card-footer"><span class="views">👁️ 555</span><span class="likes">👍 134</span></div>  
+                    <div class="card-tags"><a href="#" class="tag-link">#чилловый парень</a></div>  
+                </div>  
+                <div class="meme-card" data-views="2200" data-likes="1500"><img src="gallery/pesik.jpg">  
+                    <div class="card-footer"><span class="views">👁️ 2 344</span><span class="likes">👍 1 561</span></div>  
+                    <div class="card-tags"><a href="#" class="tag-link">#Пес</a></div>  
+                </div>  
+                <div class="meme-card" data-views="3400" data-likes="2500"><img src="gallery/sozvon.jpg">  
+                    <div class="card-footer"><span class="views">👁️ 3 433</span><span class="likes">👍 1 478</span></div>  
+                    <div class="card-tags"><a href="#" class="tag-link">#созвон</a></div>  
+                </div>  
+            </div>  
+              
+            <div class="meme-row hidden-row">  
+                <div class="meme-card" data-views="947" data-likes="679"><img src="gallery/tatarstan.jpg">  
+                    <div class="card-footer"><span class="views">👁️ 947</span><span class="likes">👍 679</span></div>  
+                    <div class="card-tags"><a href="#" class="tag-link">#попугай</a></div>  
+                </div>  
+                <div class="meme-card" data-views="4800" data-likes="3200"><img src="gallery/umnii.jpeg">  
+                    <div class="card-footer"><span class="views">👁️ 4 809</span><span class="likes">👍 2 345</span></div>  
+                    <div class="card-tags"><a href="#" class="tag-link">#умный человек в очках</a></div>  
+                </div>  
+                <div class="meme-card" data-views="768" data-likes="431"><img src="gallery/shrek.jpeg">  
+                    <div class="card-footer"><span class="views">👁️ 768</span><span class="likes">👍 231</span></div>  
+                    <div class="card-tags"><a href="#" class="tag-link">#шрек</a></div>  
+                    <div class="card-tags"><a href="#" class="tag-link">#мексиканский шрек</a></div>  
+                </div>  
+                <div class="meme-card" data-views="1100" data-likes="900"><img src="gallery/kot.jpeg">  
+                    <div class="card-footer"><span class="views">👁️ 1 112</span><span class="likes">👍 900</span></div>  
+                    <div class="card-tags"><a href="#" class="tag-link">#Коты</a></div>  
+                </div>  
+            </div>  
+              
+            <div class="meme-row hidden-row">  
+                <div class="meme-card" data-views="725" data-likes="455"><img src="gallery/zhak.jpg">  
+                    <div class="card-footer"><span class="views">👁️ 725</span><span class="likes">👍 155</span></div>  
+                    <div class="card-tags"><a href="#" class="tag-link">#Жак Фреско</a></div>  
+                </div>  
+                <div class="meme-card" data-views="2500" data-likes="1300"><img src="gallery/jarvis.jpeg">  
+                    <div class="card-footer"><span class="views">👁️ 2 567</span><span class="likes">👍 2 355</span></div>  
+                    <div class="card-tags"><a href="#" class="tag-link">#джарвис</a></div>  
+                </div>  
+                <div class="meme-card" data-views="122" data-likes="55"><img src="gallery/lisiy.jpeg">  
+                    <div class="card-footer"><span class="views">👁️ 122</span><span class="likes">👍 55</span></div>  
+                    <div class="card-tags"><a href="#" class="tag-link">#лысый</a></div>  
+                </div>  
+                <div class="meme-card" data-views="1900" data-likes="1000"><img src="gallery/leto.jpeg">  
+                    <div class="card-footer"><span class="views">👁️ 1 999</span><span class="likes">👍 1 120</span></div>  
+                    <div class="card-tags"><a href="#" class="tag-link">#чисто на лето</a></div>  
+                </div>  
+            </div>
+            </section>  
+    </main>  
+    
+    <section class="load-more-section">  
+        <a href="javascript:void(0)" id="load-more-btn" class="load-more-button">  
+            ЗАГРУЗИТЬ ЕЩЁ МЕМЫ  
+        </a>  
+    </section>  
 
-            <div class="canvas-area">  
-                <canvas id="memeCanvas"></canvas>  
+    <div id="lightbox" class="lightbox">  
+        <span class="close-btn">&times;</span>  
+        <img class="lightbox-content" id="lightbox-img" src="">  
+    </div>  
+    <section class="generator-section" id="generator-start">  
+        <div class="generator-content-wrapper">  
+            <h1 class="generator-hashtag">#MemeGenerator</h1>  
+              
+            <div class="meme-editor-container">  
+                <div class="editor-controls">  
+                    <h2>Настройки</h2>  
+
+                    <div class="control-group">  
+                        <label for="image-upload" class="control-label">Фоновое изображение:</label>  
+                        <input type="file" id="image-upload" accept="image/*">  
+                        <button id="clear-canvas-btn" class="editor-btn delete-btn">Очистить холст</button>  
+                    </div>  
+
+                    <div class="control-group">  
+                        <label for="top-text" class="control-label">Верхний текст:</label>  
+                        <input type="text" id="top-text" placeholder="Введите верхний текст">  
+                    </div>  
+
+                    <div class="control-group">  
+                        <label for="bottom-text" class="control-label">Нижний текст:</label>  
+                        <input type="text" id="bottom-text" placeholder="Введите нижний текст">  
+                    </div>  
+
+                    <div class="control-group text-settings">  
+                        <label for="text-color" class="control-label">Цвет текста:</label>  
+                        <input type="color" id="text-color" value="#FFFFFF">  
+                          
+                        <label for="font-size" class="control-label">Размер шрифта:</label>  
+                        <input type="range" id="font-size" min="20" max="100" value="48">  
+                          
+                        <label for="font-family" class="control-label">Шрифт:</label>  
+                        <select id="font-family">  
+                            <option value="Impact">Impact</option>  
+                            <option value="Arial">Arial</option>  
+                            <option value="Verdana">Verdana</option>  
+                            <option value="Oswald">Oswald</option>  
+                            <option value="Montserrat">Montserrat</option>  
+                        </select>  
+                    </div>  
+
+                    <div class="control-group drawing-tools">  
+                        <label class="control-label">Рисование:</label>  
+                        <div class="drawing-buttons">  
+                            <button id="toggle-draw-btn" class="editor-btn draw-btn">Включить/Выключить</button>  
+                            <input type="color" id="draw-color" value="#FF0000">  
+                            <input type="range" id="draw-width" min="1" max="20" value="5">  
+                            <button id="undo-draw-btn" class="editor-btn">Отменить</button>  
+                        </div>  
+                    </div>  
+
+                    <div class="control-group download-group">  
+                        <button id="download-meme-btn" class="editor-btn download-btn">Скачать</button>  
+                    </div>  
+                </div>  
+
+                <div class="canvas-area">  
+                    <canvas id="memeCanvas"></canvas>  
+                </div>  
             </div>  
         </div>  
-    </div>  
-</section>
+    </section>
 
-<section id="MemeSite" class="generator-section">  
-    <div class="generator-content-wrapper">  
-        <h2 class="generator-hashtag">#MemeSite</h2>  
-        <div class="meme-editor-container" style="display: block; padding: 30px;">  
-            <p style="font-size: 18px; color: var(--text-color-secondary); margin-bottom: 15px;">  
-                Добро пожаловать на **MemeMania** — идеальный сайт для поиска и создания мемов!  
-            </p>  
-            <p style="font-size: 16px; color: var(--text-color-primary);">  
-                Я создал эту платформу для всех, кто любит мемы. Здесь ты можешь не только просматривать и самые смешные и популярные мемы, но и создавать свои собственные шедевры с помощью нашего генератора. Загружайте изображения, добавляйте текст и делитесь своим юмором со всем миром!  
-            </p>  
+    <section id="MemeSite" class="generator-section">  
+        <div class="generator-content-wrapper">  
+            <h2 class="generator-hashtag">#MemeSite</h2>  
+            <div class="meme-editor-container" style="display: block; padding: 30px;">  
+                <p style="font-size: 18px; color: var(--text-color-secondary); margin-bottom: 15px;">  
+                    Добро пожаловать на **MemeMania** — идеальный сайт для поиска и создания мемов!  
+                </p>  
+                <p style="font-size: 16px; color: var(--text-color-primary);">  
+                    Я создал эту платформу для всех, кто любит мемы. Здесь ты можешь не только просматривать и самые смешные и популярные мемы, но и создавать свои собственные шедевры с помощью нашего генератора. Загружайте изображения, добавляйте текст и делитесь своим юмором со всем миром!  
+                </p>  
+            </div>  
         </div>  
-    </div>  
-</section>  
- <script>
+    </section>
+    
+    <div id="login-modal" class="auth-modal">
+        <div class="auth-modal-content">
+            <span class="close-btn">&times;</span>
+            
+            <form id="login-form" class="auth-form">
+                <h2>ВХОД</h2>
+                <div class="form-group">
+                    <label for="user-login">Имя пользователя или Email</label>
+                    <input type="text" id="user-login" required>
+                </div>
+                <div class="form-group">
+                    <label for="user-password">Пароль</label>
+                    <input type="password" id="user-password" required>
+                </div>
+                <button type="submit" class="editor-btn download-btn login-submit-btn">ВОЙТИ</button>
+                <p class="switch-link">
+                    Нет аккаунта? <a href="#" id="switch-to-register">Зарегистрироваться</a>
+                </p>
+            </form>
+
+            <form id="register-form" class="auth-form hidden-auth-form">
+                <h2>РЕГИСТРАЦИЯ</h2>
+                <div class="form-group">
+                    <label for="reg-username">Имя пользователя</label>
+                    <input type="text" id="reg-username" required>
+                </div>
+                 <div class="form-group">
+                    <label for="reg-email">Email</label>
+                    <input type="email" id="reg-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-password">Пароль</label>
+                    <input type="password" id="reg-password" required>
+                </div>
+                <button type="submit" class="editor-btn download-btn login-submit-btn">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+                <p class="switch-link">
+                    Уже есть аккаунт? <a href="#" id="switch-to-login">Войти</a>
+                </p>
+            </form>
+        </div>
+    </div>
+    <script>
 document.addEventListener('DOMContentLoaded', () => {
 
-    /* === УНИВЕРСАЛЬНАЯ ПЛАВНАЯ ПРОКРУТКА (ИСПРАВЛЕННЫЙ БЛОК) === */
+    /* ==================================================================== */
+    /* === 0. ФУНКЦИИ УПРАВЛЕНИЯ СЕССИЕЙ И UI (Клиентская сторона) === */
+    /* Использует sessionStorage для эмуляции сессии после успешного AJAX */
+    /* ==================================================================== */
+
+    const getCurrentUser = () => {
+        try {
+            const session = sessionStorage.getItem('currentUser'); 
+            return session ? JSON.parse(session) : null;
+        } catch (e) {
+            return null;
+        }
+    };
+
+    const setCurrentUser = (user) => {
+        if (user) {
+            sessionStorage.setItem('currentUser', JSON.stringify(user));
+        } else {
+            sessionStorage.removeItem('currentUser');
+        }
+        updateAuthUI(); 
+    };
+
+    const updateAuthUI = () => {
+        const user = getCurrentUser();
+        const loginButtonArea = document.querySelector('.header-right-area');
+        
+        // Удаляем все старые элементы (кнопка ВОЙТИ или профиль)
+        const existingAuthElements = loginButtonArea.querySelectorAll('.login-button-dark, .user-profile-area, .logout-button');
+        existingAuthElements.forEach(el => el.remove());
+
+        if (user) {
+            // Пользователь ВОШЕЛ: отображаем имя/роль и кнопку Выход
+            const userArea = document.createElement('div');
+            userArea.classList.add('user-profile-area');
+            userArea.innerHTML = `
+                <span class="user-welcome" style="margin-right: 15px; color: ${user.role === 'admin' ? 'var(--primary-color)' : 'var(--text-color-secondary)'}; font-weight: 700; font-size: 14px;">
+                    ${user.role === 'admin' ? 'АДМИН' : user.username}
+                </span>
+                <a href="#" class="editor-btn download-btn logout-button" style="padding: 8px 15px; margin-left: 0;">ВЫХОД</a>
+            `;
+            
+            // Находим место, куда вставить элементы (после навигационных ссылок)
+            const navLinks = loginButtonArea.querySelector('.nav-links-dark');
+            loginButtonArea.insertBefore(userArea, navLinks.nextSibling);
+
+            // Обработчик выхода
+            document.querySelector('.logout-button').addEventListener('click', (e) => {
+                e.preventDefault();
+                setCurrentUser(null);
+            });
+
+        } else {
+            // Пользователь НЕ ВОШЕЛ: отображаем кнопку ВОЙТИ
+            const loginBtn = document.createElement('a');
+            loginBtn.href = "#";
+            loginBtn.classList.add('login-button-dark');
+            loginBtn.textContent = 'ВОЙТИ';
+            loginButtonArea.appendChild(loginBtn);
+            
+            // Добавляем слушатель для открытия модального окна
+            loginBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const loginModal = document.getElementById('login-modal');
+                const loginForm = document.getElementById('login-form');
+                const registerForm = document.getElementById('register-form');
+
+                if (loginModal) {
+                    if(loginForm) loginForm.classList.remove('hidden-auth-form');
+                    if(registerForm) registerForm.classList.add('hidden-auth-form');
+                    loginModal.style.display = "flex";
+                }
+            });
+        }
+    };
+    
+    // ====================================================================
+
+    /* === УНИВЕРСАЛЬНАЯ ПЛАВНАЯ ПРОКРУТКА === */
     document.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
-
-            // Если ссылка ведет на # или #home, прокручиваем на самый верх (0, 0)
             if (!targetId || targetId === '#' || targetId === '#home') {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 return;
             }
-
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -283,7 +403,130 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     // ====================================================================
 
-    /* === Галерея === */
+
+    /* ==================================================================== */
+    /* === 1. ЛОГИКА ОКНА ВХОДА/РЕГИСТРАЦИИ (Фронтенд) === */
+    /* ==================================================================== */
+    
+    const loginModal = document.getElementById('login-modal');
+    const loginCloseBtn = loginModal ? loginModal.querySelector('.close-btn') : null; 
+
+    // Элементы форм
+    const loginForm = document.getElementById('login-form');
+    const registerForm = document.getElementById('register-form');
+    const switchToRegisterLink = document.getElementById('switch-to-register');
+    const switchToLoginLink = document.getElementById('switch-to-login');
+
+    // Закрытие по крестику
+    if (loginCloseBtn) {
+        loginCloseBtn.addEventListener('click', () => {
+            if(loginModal) loginModal.style.display = "none";
+        });
+    }
+
+    // Закрытие по клику вне модального окна
+    window.addEventListener('click', e => {
+        if (e.target === loginModal) {
+            loginModal.style.display = "none";
+        }
+    });
+
+    // Переключение между формами
+    if (switchToRegisterLink && loginForm && registerForm) {
+        switchToRegisterLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginForm.classList.add('hidden-auth-form');
+            registerForm.classList.remove('hidden-auth-form');
+        });
+    }
+    if (switchToLoginLink && loginForm && registerForm) {
+        switchToLoginLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            registerForm.classList.add('hidden-auth-form');
+            loginForm.classList.remove('hidden-auth-form');
+        });
+    }
+
+
+    /* ==================================================================== */
+    /* === 2. ОБРАБОТКА ФОРМ (AJAX к api.php) === */
+    /* ==================================================================== */
+    
+    // --- 2.1. Обработка ВХОДА (LOGIN) ---
+    if (loginForm) {
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const userLogin = document.getElementById('user-login').value;
+            const userPassword = document.getElementById('user-password').value;
+            
+            try {
+                const response = await fetch('api.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        action: 'login',
+                        login: userLogin,
+                        password: userPassword
+                    })
+                });
+                
+                const result = await response.json();
+
+                if (result.success) {
+                    setCurrentUser(result.user); // Сохраняем сессию и обновляем UI
+                    loginModal.style.display = "none";
+                    alert(`Добро пожаловать, ${result.user.role === 'admin' ? 'Админ' : result.user.username}!`);
+                    loginForm.reset();
+                } else {
+                    alert('Ошибка входа: ' + (result.message || 'Неверные учетные данные.'));
+                }
+            } catch (error) {
+                console.error('Login failed:', error);
+                alert('Произошла ошибка при подключении к серверу. Убедитесь, что PHP запущен и файлы api.php/db.php доступны.');
+            }
+        });
+    }
+    
+    // --- 2.2. Обработка РЕГИСТРАЦИИ (REGISTER) ---
+    if (registerForm) {
+        registerForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const regUsername = document.getElementById('reg-username').value.trim();
+            const regEmail = document.getElementById('reg-email').value.trim();
+            const regPassword = document.getElementById('reg-password').value;
+
+            try {
+                const response = await fetch('api.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        action: 'register',
+                        username: regUsername,
+                        email: regEmail,
+                        password: regPassword
+                    })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    setCurrentUser(result.user); // Автоматический вход
+                    loginModal.style.display = "none";
+                    alert(`Регистрация успешна! Добро пожаловать, ${result.user.username}!`);
+                    registerForm.reset();
+                } else {
+                    alert('Ошибка регистрации: ' + (result.message || 'Произошла ошибка.'));
+                }
+
+            } catch (error) {
+                console.error('Registration failed:', error);
+                alert('Произошла ошибка при подключении к серверу. Убедитесь, что PHP запущен и файлы api.php/db.php доступны.');
+            }
+        });
+    }
+
+
+    /* === Галерея (Без изменений) === */
     const galleryContainer = document.querySelector('.meme-gallery');
     const loadMoreBtn = document.getElementById('load-more-btn');
     const allCardsArray = Array.from(document.querySelectorAll('.meme-card'));
@@ -332,10 +575,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     rebuildGallery(currentSort, currentVisibleRows);
 
-    /* === Lightbox === */
+    /* === Lightbox (Без изменений) === */
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-img");
-    const closeBtn = document.querySelector(".close-btn");
+    const closeBtn = document.querySelector("#lightbox .close-btn"); // Уточняем селектор
 
     allCardsArray.forEach(card => {
         const img = card.querySelector('img');
@@ -353,7 +596,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.target === lightbox) lightbox.style.display = "none";
     });
 
-    /* === Поиск === */
+    /* === Поиск (Без изменений) === */
     const searchInput = document.getElementById('meme-search');
     const searchBtn = document.getElementById('search-btn');
     const searchMessage = document.getElementById('search-message');
@@ -365,7 +608,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const executeSearch = () => {
         const query = searchInput.value.trim().toLowerCase().replace(/#/g, '');
-        searchMessage.classList.remove('visible'); // Скрываем сообщение при новом поиске
+        searchMessage.classList.remove('visible'); 
         if (!query) return;
 
         let foundCard = null;
@@ -392,7 +635,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             setTimeout(() => {
-                // Скролл к найденному тегу или карточке
                 (foundTag || foundCard).scrollIntoView({ behavior: 'smooth', block: 'center' });
             }, 100);
         } else showSearchMessage();
@@ -401,7 +643,7 @@ document.addEventListener('DOMContentLoaded', () => {
     searchBtn.addEventListener('click', executeSearch);
     searchInput.addEventListener('keydown', e => { if (e.key === 'Enter') executeSearch(); });
 
-    /* === Генератор мемов (Canvas) === */
+    /* === Генератор мемов (Canvas) (Без изменений) === */
     const memeCanvas = document.getElementById('memeCanvas');
     const ctx = memeCanvas.getContext('2d');
     const imageUpload = document.getElementById('image-upload');
@@ -430,7 +672,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const ratio = w / h;
             const maxW = 800, maxH = 600;
 
-            // Логика подгонки изображения под canvas (ваша логика была слегка изменена для корректного fit)
             if (w > maxW || h > maxH) {
                 if (w / maxW > h / maxH) {
                     w = maxW;
@@ -440,7 +681,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     w = h * ratio;
                 }
             } else {
-                // Если изображение меньше, используем его фактический размер
                 if (originalImage.width > maxW) { w = maxW; h = w / ratio; }
                 if (originalImage.height > maxH) { h = maxH; w = h * ratio; }
             }
@@ -448,7 +688,7 @@ document.addEventListener('DOMContentLoaded', () => {
             memeCanvas.width = w;
             memeCanvas.height = h;
 
-            const x = 0; // Теперь изображение занимает весь canvas
+            const x = 0; 
             const y = 0;
             ctx.drawImage(originalImage, x, y, w, h);
         } else {
@@ -549,7 +789,9 @@ document.addEventListener('DOMContentLoaded', () => {
         link.click();
     });
 
+    // --- ФИНАЛИЗАЦИЯ ---
     drawMeme();
+    updateAuthUI(); // Вызываем для проверки сессии и установки правильной кнопки
 });
 </script>
 </body>  
