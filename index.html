@@ -13,11 +13,11 @@
     <div class="header-top-row">  
           
         <div class="header-left-area">  
-            <a href="#home" class="site-title">MEME PUBLISHING</a>  
+            <a class="site-title">MEME PUBLISHING</a>  
         </div>
 
 <div class="logo-center">  
-    <a href="#" class="logo-text" onclick="scrollToTop(event)">#MEMEMANIA</a>  
+    <a href="#home" class="logo-text">#MEMEMANIA</a>  
 </div>  <div class="header-right-area">  
 <nav class="nav-links-dark">
     <a href="#gallery-start">ГАЛЕРЕЯ</a>
@@ -261,73 +261,47 @@
   <script>
 document.addEventListener('DOMContentLoaded', () => {
 
-    /* === ГЛАВНАЯ ДОБАВКА — УНИВЕРСАЛЬНАЯ ПЛАВНАЯ ПРОКРУТКА === */
+    /* === УНИВЕРСАЛЬНАЯ ПЛАВНАЯ ПРОКРУТКА (ИСПРАВЛЕННЫЙ БЛОК) === */
     document.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener('click', function(e) {
+            e.preventDefault();
             const targetId = this.getAttribute('href');
 
-            if (!targetId || targetId === '#') return;
+            // Если ссылка ведет на # или #home, прокручиваем на самый верх (0, 0)
+            if (!targetId || targetId === '#' || targetId === '#home') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                return;
+            }
 
             const targetElement = document.querySelector(targetId);
-            if (!targetElement) return;
-
-            e.preventDefault();
-            targetElement.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         });
     });
-    /* ======================================================== */
+    // ====================================================================
 
-
-    /* --- ВЕСЬ ТВОЙ СУЩЕСТВУЮЩИЙ КОД БЕЗ ИЗМЕНЕНИЙ --- */
-
+    /* === Галерея === */
     const galleryContainer = document.querySelector('.meme-gallery');
-    const loadMoreBtn = document.querySelector('.load-more-button') || document.getElementById('load-more-btn');
-
-    const navAboutLink = document.getElementById('nav-about-link'); 
-    const scrollToAboutBtn = document.getElementById('scroll-to-about-btn'); 
-    const uploadLink = document.getElementById('upload-link'); 
-    const generatorLink = document.getElementById('generator-link'); 
-
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const searchInput = document.getElementById('meme-search'); 
-    const searchBtn = document.getElementById('search-btn'); 
-    const searchMessage = document.getElementById('search-message'); 
-
+    const loadMoreBtn = document.getElementById('load-more-btn');
     const allCardsArray = Array.from(document.querySelectorAll('.meme-card'));
     const cardsPerRow = 4;
-    const totalRows = Math.ceil(allCardsArray.length / cardsPerRow); 
+    const totalRows = Math.ceil(allCardsArray.length / cardsPerRow);
     const rowsPerClick = 2;
-
-    let currentVisibleRows = 1; 
+    let currentVisibleRows = 1;
     let currentSort = document.querySelector('.filter-btn.active-filter')?.dataset.sort || 'views';
 
-
-    /* --- ДАЛЬШЕ ВСЕ ОСТАЛЬНОЕ БЕЗ ИЗМЕНЕНИЙ (ГАЛЕРЕЯ, LIGHTBOX, ГЕНЕРАТОР, РИСОВАНИЕ И Т.Д.) --- */
-
     const rebuildGallery = (sortBy, rowsToKeepVisible) => {
-        allCardsArray.sort((a, b) => {
-            const valA = parseInt(a.dataset[sortBy]);
-            const valB = parseInt(b.dataset[sortBy]);
-            if (isNaN(valA) || isNaN(valB)) return 0;
-            return valB - valA;
-        });
-
-        while (galleryContainer.firstChild) {
-            galleryContainer.removeChild(galleryContainer.firstChild);
-        }
-
+        allCardsArray.sort((a, b) => parseInt(b.dataset[sortBy]) - parseInt(a.dataset[sortBy]));
+        galleryContainer.innerHTML = '';
         const rowsToShow = Math.min(rowsToKeepVisible, totalRows);
 
         for (let i = 0; i < totalRows; i++) {
             const newRow = document.createElement('div');
             newRow.classList.add('meme-row');
             if (i >= rowsToShow) newRow.classList.add('hidden-row');
-
-            const cardGroup = allCardsArray.slice(i * cardsPerRow, i * cardsPerRow + cardsPerRow);
-            cardGroup.forEach(card => newRow.appendChild(card));
+            allCardsArray.slice(i * cardsPerRow, i * cardsPerRow + cardsPerRow)
+                         .forEach(card => newRow.appendChild(card));
             galleryContainer.appendChild(newRow);
         }
 
@@ -337,76 +311,97 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', () => {
+            currentVisibleRows += rowsPerClick;
+            rebuildGallery(currentSort, currentVisibleRows);
+        });
+    }
 
-    /* --- Lightbox --- */
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active-filter'));
+            btn.classList.add('active-filter');
+            currentSort = btn.dataset.sort;
+            currentVisibleRows = 1;
+            rebuildGallery(currentSort, currentVisibleRows);
+        });
+    });
+
+    rebuildGallery(currentSort, currentVisibleRows);
+
+    /* === Lightbox === */
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-img");
-    const closeBtn = document.getElementsByClassName("close-btn")[0];
+    const closeBtn = document.querySelector(".close-btn");
 
     allCardsArray.forEach(card => {
         const img = card.querySelector('img');
-        img.onclick = function(){
+        img.addEventListener('click', () => {
             lightbox.style.display = "flex";
-            lightboxImg.src = this.src;
-        }
+            lightboxImg.src = img.src;
+        });
     });
 
-    closeBtn.onclick = function() { lightbox.style.display = "none"; }
-    window.onclick = function(event) { if (event.target == lightbox) lightbox.style.display = "none"; }
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => lightbox.style.display = "none");
+    }
+    
+    window.addEventListener('click', e => {
+        if (e.target === lightbox) lightbox.style.display = "none";
+    });
 
+    /* === Поиск === */
+    const searchInput = document.getElementById('meme-search');
+    const searchBtn = document.getElementById('search-btn');
+    const searchMessage = document.getElementById('search-message');
 
-    /* --- Поиск --- */
     const showSearchMessage = () => {
         searchMessage.classList.add('visible');
-        setTimeout(() => {
-            searchMessage.classList.remove('visible');
-        }, 1000);
+        setTimeout(() => searchMessage.classList.remove('visible'), 1000);
     };
 
     const executeSearch = () => {
-        const query = searchInput.value.trim();
-        if (query.length === 0) return;
+        const query = searchInput.value.trim().toLowerCase().replace(/#/g, '');
+        searchMessage.classList.remove('visible'); // Скрываем сообщение при новом поиске
+        if (!query) return;
 
-        const normalizedQuery = query.toLowerCase().replace(/#/g, '');
-        let firstMatchCard = null;
-        let firstMatchTagElement = null;
+        let foundCard = null;
+        let foundTag = null;
 
         for (const card of allCardsArray) {
             const tags = card.querySelectorAll('.tag-link');
             for (const tag of tags) {
-                const tagText = tag.textContent.trim().toLowerCase().replace(/#/g, '');
-                if (tagText.includes(normalizedQuery)) {
-                    firstMatchCard = card;
-                    firstMatchTagElement = tag;
+                if (tag.textContent.toLowerCase().replace(/#/g, '').includes(query)) {
+                    foundCard = card;
+                    foundTag = tag;
                     break;
                 }
             }
-            if (firstMatchCard) break;
+            if (foundCard) break;
         }
 
-        if (firstMatchCard) {
-            const cardIndex = allCardsArray.indexOf(firstMatchCard);
-            const requiredVisibleRows = Math.ceil((cardIndex + 1) / cardsPerRow);
-
-            if (requiredVisibleRows > currentVisibleRows) {
-                currentVisibleRows = requiredVisibleRows;
+        if (foundCard) {
+            const index = allCardsArray.indexOf(foundCard);
+            const rowsNeeded = Math.ceil((index + 1) / cardsPerRow);
+            if (rowsNeeded > currentVisibleRows) {
+                currentVisibleRows = rowsNeeded;
                 rebuildGallery(currentSort, currentVisibleRows);
             }
 
             setTimeout(() => {
-                (firstMatchTagElement || firstMatchCard).scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'center'
-                });
+                // Скролл к найденному тегу или карточке
+                (foundTag || foundCard).scrollIntoView({ behavior: 'smooth', block: 'center' });
             }, 100);
         } else showSearchMessage();
     };
 
+    searchBtn.addEventListener('click', executeSearch);
+    searchInput.addEventListener('keydown', e => { if (e.key === 'Enter') executeSearch(); });
 
-    /* --- Генератор мемов / Canvas / Рисование / Скачивание (оставлено без изменений) --- */
+    /* === Генератор мемов (Canvas) === */
     const memeCanvas = document.getElementById('memeCanvas');
     const ctx = memeCanvas.getContext('2d');
-
     const imageUpload = document.getElementById('image-upload');
     const clearCanvasBtn = document.getElementById('clear-canvas-btn');
     const topTextInput = document.getElementById('top-text');
@@ -420,11 +415,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const undoDrawBtn = document.getElementById('undo-draw-btn');
     const downloadMemeBtn = document.getElementById('download-meme-btn');
 
-    let originalImage = null; 
-    let drawHistory = [];
-    let drawingEnabled = false;
-    let isDrawing = false;
-    let lastX = 0, lastY = 0;
+    let originalImage = null, drawHistory = [], drawingEnabled = false, isDrawing = false, lastX = 0, lastY = 0;
 
     memeCanvas.width = 600;
     memeCanvas.height = 400;
@@ -433,103 +424,84 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.clearRect(0, 0, memeCanvas.width, memeCanvas.height);
 
         if (originalImage) {
-            let imgW = originalImage.width;
-            let imgH = originalImage.height;
-            const ratio = imgW / imgH;
-            const canvasRatio = memeCanvas.width / memeCanvas.height;
+            let w = originalImage.width, h = originalImage.height;
+            const ratio = w / h;
+            const maxW = 800, maxH = 600;
 
-            if (ratio > canvasRatio) {
-                imgW = memeCanvas.width;
-                imgH = imgW / ratio;
+            // Логика подгонки изображения под canvas (ваша логика была слегка изменена для корректного fit)
+            if (w > maxW || h > maxH) {
+                if (w / maxW > h / maxH) {
+                    w = maxW;
+                    h = w / ratio;
+                } else {
+                    h = maxH;
+                    w = h * ratio;
+                }
             } else {
-                imgH = memeCanvas.height;
-                imgW = imgH * ratio;
+                // Если изображение меньше, используем его фактический размер
+                if (originalImage.width > maxW) { w = maxW; h = w / ratio; }
+                if (originalImage.height > maxH) { h = maxH; w = h * ratio; }
             }
+            
+            memeCanvas.width = w;
+            memeCanvas.height = h;
 
-            const x = (memeCanvas.width - imgW) / 2;
-            const y = (memeCanvas.height - imgH) / 2;
-
-            ctx.drawImage(originalImage, x, y, imgW, imgH);
+            const x = 0; // Теперь изображение занимает весь canvas
+            const y = 0;
+            ctx.drawImage(originalImage, x, y, w, h);
+        } else {
+            memeCanvas.width = 600;
+            memeCanvas.height = 400;
         }
 
+
+        // Рисование
         drawHistory.forEach(path => {
             ctx.strokeStyle = path.color;
             ctx.lineWidth = path.width;
             ctx.lineJoin = 'round';
             ctx.lineCap = 'round';
             ctx.beginPath();
-            ctx.moveTo(path.points[0].x, path.points[0].y);
-            path.points.forEach(p => ctx.lineTo(p.x, p.y));
+            if (path.points.length > 0) {
+                 ctx.moveTo(path.points[0].x, path.points[0].y);
+                 path.points.forEach(p => ctx.lineTo(p.x, p.y));
+            }
             ctx.stroke();
         });
 
-        const topText = topTextInput.value;
-        const bottomText = bottomTextInput.value;
-
+        // Текст
         ctx.font = `bold ${fontSizeInput.value}px ${fontFamilySelect.value}`;
         ctx.fillStyle = textColorInput.value;
         ctx.strokeStyle = 'black';
         ctx.lineWidth = parseInt(fontSizeInput.value) / 16;
         ctx.textAlign = 'center';
 
-        if (topText) {
-            ctx.strokeText(topText, memeCanvas.width / 2, parseInt(fontSizeInput.value) + 20);
-            ctx.fillText(topText, memeCanvas.width / 2, parseInt(fontSizeInput.value) + 20);
+        // Верхний текст (с обводкой)
+        if (topTextInput.value) {
+            ctx.strokeText(topTextInput.value, memeCanvas.width / 2, parseInt(fontSizeInput.value) + 20);
+            ctx.fillText(topTextInput.value, memeCanvas.width / 2, parseInt(fontSizeInput.value) + 20);
         }
-
-        if (bottomText) {
-            ctx.strokeText(bottomText, memeCanvas.width / 2, memeCanvas.height - 20);
-            ctx.fillText(bottomText, memeCanvas.width / 2, memeCanvas.height - 20);
+        
+        // Нижний текст (с обводкой)
+        if (bottomTextInput.value) {
+            ctx.strokeText(bottomTextInput.value, memeCanvas.width / 2, memeCanvas.height - 20);
+            ctx.fillText(bottomTextInput.value, memeCanvas.width / 2, memeCanvas.height - 20);
         }
     };
 
     imageUpload.addEventListener('change', e => {
         const file = e.target.files[0];
         if (!file) return;
-
         const reader = new FileReader();
         reader.onload = ev => {
             const img = new Image();
-            img.onload = () => {
-                originalImage = img;
-
-                let w = img.width;
-                let h = img.height;
-                const maxW = 800;
-                const maxH = 600;
-
-                if (w > maxW || h > maxH) {
-                    const ratio = w / h;
-                    if (w > maxW) {
-                        w = maxW;
-                        h = w / ratio;
-                    }
-                    if (h > maxH) {
-                        h = maxH;
-                        w = h * ratio;
-                    }
-                }
-
-                memeCanvas.width = w;
-                memeCanvas.height = h;
-                drawHistory = [];
-                drawMeme();
-            };
+            img.onload = () => { originalImage = img; drawHistory = []; drawMeme(); };
             img.src = ev.target.result;
         };
         reader.readAsDataURL(file);
     });
 
-    clearCanvasBtn.addEventListener('click', () => {
-        originalImage = null;
-        drawHistory = [];
-        topTextInput.value = '';
-        bottomTextInput.value = '';
-        memeCanvas.width = 600;
-        memeCanvas.height = 400;
-        ctx.clearRect(0, 0, memeCanvas.width, memeCanvas.height);
-    });
-
+    clearCanvasBtn.addEventListener('click', () => { originalImage = null; drawHistory = []; drawMeme(); });
     topTextInput.addEventListener('input', drawMeme);
     bottomTextInput.addEventListener('input', drawMeme);
     textColorInput.addEventListener('input', drawMeme);
@@ -540,72 +512,39 @@ document.addEventListener('DOMContentLoaded', () => {
         drawingEnabled = !drawingEnabled;
         toggleDrawBtn.classList.toggle('active-draw', drawingEnabled);
         memeCanvas.style.cursor = drawingEnabled ? 'crosshair' : 'default';
-        if (!drawingEnabled) isDrawing = false;
+        isDrawing = false;
     });
 
-    undoDrawBtn.addEventListener('click', () => {
-        drawHistory.pop();
-        drawMeme();
-    });
+    undoDrawBtn.addEventListener('click', () => { drawHistory.pop(); drawMeme(); });
 
     memeCanvas.addEventListener('mousedown', e => {
         if (!drawingEnabled) return;
         isDrawing = true;
         [lastX, lastY] = [e.offsetX, e.offsetY];
-        drawHistory.push({
-            color: drawColorInput.value,
-            width: drawWidthInput.value,
-            points: [{ x: lastX, y: lastY }]
-        });
+        drawHistory.push({ color: drawColorInput.value, width: drawWidthInput.value, points: [{x:lastX,y:lastY}] });
     });
 
     memeCanvas.addEventListener('mousemove', e => {
         if (!isDrawing || !drawingEnabled) return;
-        const path = drawHistory[drawHistory.length - 1];
-        path.points.push({ x: e.offsetX, y: e.offsetY });
-        lastX = e.offsetX;
-        lastY = e.offsetY;
+        const path = drawHistory[drawHistory.length-1];
+        if (path) {
+             path.points.push({x:e.offsetX,y:e.offsetY});
+        }
         drawMeme();
     });
 
-    memeCanvas.addEventListener('mouseup', () => isDrawing = false);
-    memeCanvas.addEventListener('mouseout', () => isDrawing = false);
+    memeCanvas.addEventListener('mouseup', () => isDrawing=false);
+    memeCanvas.addEventListener('mouseout', () => isDrawing=false);
 
     downloadMemeBtn.addEventListener('click', () => {
-        if (!originalImage && !topTextInput.value && !bottomTextInput.value && drawHistory.length === 0) {
+        if (!originalImage && !topTextInput.value && !bottomTextInput.value && drawHistory.length===0){
             alert('Сначала создайте мем!');
             return;
         }
-
         const link = document.createElement('a');
         link.download = 'my-awesome-meme.png';
         link.href = memeCanvas.toDataURL('image/png');
         link.click();
-    });
-
-    rebuildGallery(currentSort, currentVisibleRows);
-
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            filterBtns.forEach(b => b.classList.remove('active-filter'));
-            this.classList.add('active-filter');
-            currentSort = this.dataset.sort;
-            currentVisibleRows = 1;
-            rebuildGallery(currentSort, currentVisibleRows);
-        });
-    });
-
-    if (loadMoreBtn) {
-        loadMoreBtn.addEventListener('click', e => {
-            e.preventDefault();
-            currentVisibleRows += rowsPerClick;
-            rebuildGallery(currentSort, currentVisibleRows);
-        });
-    }
-
-    searchBtn.addEventListener('click', executeSearch);
-    searchInput.addEventListener('keydown', e => {
-        if (e.key === 'Enter') executeSearch();
     });
 
     drawMeme();
@@ -613,4 +552,5 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>  
 </html>
+
 
