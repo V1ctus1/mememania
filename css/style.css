@@ -1,0 +1,807 @@
+/* --- ОСНОВНЫЕ ПЕРЕМЕННЫЕ И СБРОС --- */
+:root {
+    --primary-color: #FFC000;         /* Желтый цвет */
+    --secondary-color: #FFFFFF;        /* Белый цвет */
+    --dark-background: #1C1C1C;        /* Темно-серый фон (новый) */
+    --darker-background: #111111;      /* Более темный фон для карточек/хедеров (новый) */
+    --medium-gray-input: #333333;      /* Цвет для полей ввода */
+    --text-color-primary: #BBBBBB;     /* Светло-серый для основного текста (новый) */
+    --text-color-secondary: #FFFFFF;   /* Чисто белый для акцентов/кнопок */
+    --header-color: #252525;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--dark-background); 
+    color: var(--text-color-primary);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color-primary);
+}
+
+/* --- 1. СТИЛИ ХЕДЕРА И НАВИГАЦИИ (Без изменений) --- */
+
+.header-dark-style-centered {
+    background-color: var(--darker-background); 
+    padding: 15px 0;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.header-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.site-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-color-primary);
+    margin-right: 30px;
+}
+
+.logo-center {
+    flex-grow: 1; 
+    text-align: center;
+}
+
+.logo-text {
+    font-family: 'Oswald', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-color-secondary);
+}
+
+.header-right-area {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links-dark a {
+    color: var(--text-color-primary);
+    margin-left: 20px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links-dark a:hover {
+    color: var(--primary-color);
+}
+
+.login-button-dark {
+    background-color: var(--primary-color);
+    color: var(--darker-background);
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: 700;
+    margin-left: 20px;
+    transition: background-color 0.3s;
+}
+
+.login-button-dark:hover {
+    background-color: #E6B000;
+}
+
+/* --- 2. СТИЛИ ПОИСКОВОЙ СТРОКИ (ИСПРАВЛЕНЫ СТУПЕНЬКИ) --- */
+
+.header-search-container {
+    max-width: 1200px;
+    margin: 15px auto 0;
+    padding: 0 20px;
+    display: flex;
+    /* КЛЮЧЕВОЕ ИЗМЕНЕНИЕ: Растягиваем элементы, чтобы они были одной высоты */
+    align-items: stretch; 
+    position: relative;
+}
+
+#meme-search {
+    flex-grow: 1; 
+    /* Добавляем немного padding, чтобы увеличить высоту */
+    padding: 10px 15px; 
+    border: none;
+    /* Важно убрать правый радиус, чтобы слиться с кнопкой */
+    border-radius: 5px 0 0 5px; 
+    background-color: var(--medium-gray-input);
+    color: var(--text-color-secondary);
+    font-size: 16px;
+    outline: none;
+    /* Гарантируем одинаковую высоту, чтобы избежать "ступеньки" */
+    height: 40px; 
+}
+
+#search-btn {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: var(--darker-background);
+    border: none;
+    /* Важно убрать левый радиус, чтобы слиться с полем ввода */
+    border-radius: 0 5px 5px 0; 
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    /* ИЗМЕНЕНИЕ: Делаем текст заглавными буквами */
+    text-transform: uppercase; 
+    /* Гарантируем одинаковую высоту */
+    height: 40px;
+    line-height: 20px; /* Коррекция, чтобы текст был по центру, если padding=10px */
+}
+
+#search-btn:hover {
+    background-color: #E6B000;
+}
+
+/* ИЗМЕНЕНИЕ: Стили для центрированного, желтого сообщения об ошибке */
+.search-message {
+    /* КЛЮЧЕВОЕ ИЗМЕНЕНИЕ: Фиксированное позиционирование для центрирования на экране */
+    position: fixed; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Точное центрирование по осям X и Y */
+    
+    background-color: var(--primary-color); /* Желтый фон */
+    color: var(--darker-background); /* Темный текст */
+    
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 18px;
+    
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 2000; /* Выводим поверх всего */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.search-message.visible {
+    opacity: 1;
+}
+
+/* --- 3. СТИЛИ INTRO/ГАЛЕРЕИ (ВЫРАВНИВАНИЕ) --- */
+
+.intro-section-dark {
+    background-color: var(--dark-background);
+    padding: 40px 0 20px;
+}
+
+.intro-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.intro-header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
+
+.intro-text-area {
+    padding-left: 0; 
+}
+
+.intro-hashtag {
+    font-family: 'Oswald', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--text-color-secondary);
+    margin-bottom: 5px;
+}
+
+.intro-description {
+    font-size: 16px;
+    color: var(--text-color-primary);
+}
+
+.suggest-button {
+    background-color: var(--primary-color);
+    color: var(--darker-background);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: background-color 0.3s;
+    text-transform: uppercase;
+}
+
+.suggest-button:hover {
+    background-color: #E6B000;
+}
+
+/* Стили фильтров */
+.filter-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding-left: 0; 
+}
+
+.filter-btn {
+    background-color: var(--medium-gray-input);
+    color: var(--text-color-primary);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.filter-btn:hover {
+    background-color: #444444;
+    color: var(--text-color-secondary);
+}
+
+.filter-btn.active-filter {
+    background-color: var(--primary-color);
+    color: var(--darker-background);
+}
+
+/* --- 4. СТИЛИ ГАЛЕРЕИ --- */
+
+.meme-main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.meme-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.meme-row {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.hidden-row {
+    display: none;
+}
+
+.meme-card {
+    background-color: var(--darker-background);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    flex: 1 1 calc(25% - 15px);
+    max-width: calc(25% - 15px);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.meme-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.meme-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 12px;
+    background-color: #111111;
+    font-size: 14px;
+    color: var(--text-color-primary);
+}
+
+.card-tags {
+    padding: 8px 12px 12px;
+    background-color: #111111;
+}
+
+.tag-link {
+    display: inline-block;
+    background-color: var(--medium-gray-input);
+    color: var(--primary-color);
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 500;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+/* --- 5. КНОПКА ЗАГРУЗИТЬ ЕЩЁ (Центрирование и компактность) --- */
+
+.load-more-section {
+    padding: 40px 0;
+    /* 1. Обеспечиваем центрирование inline-блоков внутри секции */
+    text-align: center !important; 
+}
+
+.load-more-button {
+    display: inline-flex !important; 
+    width: auto !important; 
+    
+    /* Стили оформления (без изменений) */
+    background-color: var(--primary-color);
+    color: var(--darker-background);
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 18px;
+    transition: background-color 0.3s;
+    text-transform: uppercase;
+}
+
+.load-more-button:hover {
+    background-color: #E6B000;
+}
+
+/* КЛАСС ДЛЯ СКРЫТИЯ КНОПКИ ПОСЛЕ ПОЛНОЙ ЗАГРУЗКИ */
+.load-more-button.hidden {
+    display: none !important; 
+}
+/* КЛАСС ДЛЯ СКРЫТИЯ КНОПКИ ПОСЛЕ ПОЛНОЙ ЗАГРУЗКИ (Используется в JS) */
+.load-more-button.hidden {
+    display: none !important; 
+}
+/* --- 6. СТИЛИ LIGHTBOX (Модальное окно) --- */
+
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    width: auto;
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #bbb;
+}
+
+/* --- 7. СТИЛИ ГЕНЕРАТОРА МЕМОВ --- */
+
+.generator-section {
+    background-color: var(--dark-background);
+    padding: 50px 0;
+}
+
+.generator-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.generator-hashtag {
+    font-family: 'Oswald', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--text-color-secondary);
+    margin-bottom: 30px;
+}
+
+.meme-editor-container {
+    display: flex;
+    gap: 30px;
+    background-color: var(--darker-background);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.editor-controls {
+    flex: 0 0 350px;
+    padding-right: 20px;
+    border-right: 1px solid #333333;
+}
+
+.editor-controls h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-family: 'Oswald', sans-serif;
+    border-bottom: 2px solid #333333;
+    padding-bottom: 10px;
+}
+
+.control-group {
+    margin-bottom: 15px;
+}
+
+.control-label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--text-color-primary);
+    font-weight: 500;
+}
+
+.editor-controls input[type="text"],
+.editor-controls input[type="file"],
+.editor-controls select,
+.editor-controls button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 4px;
+    border: 1px solid #333333;
+    background-color: #444444;
+    color: var(--text-color-secondary);
+    font-size: 14px;
+}
+
+.editor-controls input[type="file"] {
+    background-color: #444444;
+    color: var(--primary-color);
+    cursor: pointer;
+    font-weight: 700;
+}
+
+/* Стили для обертки файла и крестика (для сохранения структуры предыдущих ответов) */
+.upload-wrapper {
+    display: flex; 
+    align-items: stretch;
+    gap: 5px;
+}
+
+.upload-wrapper input[type="file"] {
+    flex-grow: 1; 
+    margin-top: 0;
+}
+
+.clear-image-btn {
+    background: #555555; 
+    color: var(--text-color-secondary);
+    border: none;
+    cursor: pointer;
+    font-size: 20px; 
+    line-height: 1;
+    width: 40px; 
+    height: 40px; 
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: background 0.2s;
+    margin-top: 5px;
+}
+
+.clear-image-btn:hover {
+    background: #CC3333; 
+}
+
+
+.editor-btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background-color 0.3s;
+    margin-top: 5px;
+}
+
+.delete-btn {
+    background-color: #CC3333;
+    color: var(--text-color-secondary);
+}
+
+.delete-btn:hover {
+    background-color: #AA2222;
+}
+
+.download-btn {
+    background-color: var(--primary-color);
+    color: var(--darker-background);
+    font-size: 16px;
+    padding: 12px;
+}
+
+.download-btn:hover {
+    background-color: #E6B000;
+}
+
+.text-settings {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.text-settings .control-label {
+    flex: 1 1 100%;
+}
+
+/* Стилизация ползунка и цвета */
+.control-group input[type="color"] {
+    width: 40px;
+    height: 30px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    vertical-align: middle;
+    margin-right: 15px;
+}
+
+/* 🎯 АГРЕССИВНО ИСПРАВЛЕННАЯ СЕКЦИЯ ПОЛЗУНКОВ */
+.control-group input[type="range"] {
+    /* Рассчитываем ширину */
+    width: calc(100% - 75px); 
+    vertical-align: middle;
+    
+    /* Сброс стандартных стилей */
+    -webkit-appearance: none; 
+    -moz-appearance: none;     
+    appearance: none;          
+    
+    background: #444444;
+    border-radius: 5px;
+    height: 8px; /* Явная высота для трека */
+    outline: none;
+    margin: 0; /* Удаляем все отступы */
+    padding: 0; /* Удаляем весь паддинг */
+}
+
+/* Бегунок для Webkit */
+.control-group input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary-color); 
+    cursor: grab;
+    /* КЛЮЧЕВАЯ КОРРЕКЦИЯ: Сдвигаем бегунок вверх, чтобы он центрировался на треке 8px */
+    margin-top: -6px; 
+}
+
+/* Бегунок для Firefox */
+.control-group input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary-color); 
+    cursor: grab;
+    border: none;
+}
+
+/* Стили для рисования */
+.drawing-tools {
+    border-top: 1px solid #333333;
+    padding-top: 15px;
+}
+
+.drawing-buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* ... (остальные стили в этой секции) ... */
+
+.drawing-buttons input[type="range"] {
+    width: 80px;
+    margin-top: 0;
+    /* Дополнительно убеждаемся, что здесь нет лишних стилей */
+}
+/* 🎯 КОНЕЦ ИСПРАВЛЕННОЙ СЕКЦИИ ПОЛЗУНКОВ */
+
+/* Стили для рисования */
+.drawing-tools {
+    border-top: 1px solid #333333;
+    padding-top: 15px;
+}
+
+.drawing-buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.draw-btn {
+    background-color: #555555;
+    color: var(--text-color-secondary);
+    width: auto;
+}
+
+.draw-btn.active-draw {
+    background-color: #2ECC71;
+}
+
+.drawing-buttons input[type="color"] {
+    width: 40px;
+    height: 30px;
+    padding: 0;
+    border: none;
+    background: transparent;
+}
+
+/* 🚀 ИСПРАВЛЕННЫЕ ПОЛЗУНКИ ДЛЯ ИНСТРУМЕНТОВ РИСОВАНИЯ */
+.drawing-buttons input[type="range"] {
+    width: 80px;
+    margin-top: 0;
+    /* Наследует стили из .control-group input[type="range"] */
+}
+/* 🚀 КОНЕЦ ИСПРАВЛЕННЫХ ПОЛЗУНКОВ ДЛЯ ИНСТРУМЕНТОВ РИСОВАНИЯ */
+
+
+.canvas-area {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #252525; 
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+#memeCanvas {
+    display: block;
+    background-color: #333333;
+    border: 1px dashed #555555;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* --- АДАПТИВНОСТЬ --- */
+@media (max-width: 900px) {
+    .header-top-row {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .header-left-area, .logo-center, .header-right-area {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    
+    .header-right-area {
+        justify-content: center;
+    }
+    
+    .nav-links-dark {
+        display: none;
+    }
+
+    .meme-row {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .meme-card {
+        flex: 1 1 calc(50% - 5px); 
+        max-width: calc(50% - 5px);
+    }
+    
+    .meme-editor-container {
+        flex-direction: column;
+    }
+    
+    .editor-controls {
+        flex: auto;
+        border-right: none;
+        border-bottom: 1px solid #333333;
+        padding-bottom: 20px;
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .meme-card {
+        flex: 1 1 100%; 
+        max-width: 100%;
+    }
+}
+/* CSS для модального окна "Предложить мем" (просто добавьте это в ваш <style> или CSS-файл) */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.8); 
+    padding-top: 50px;
+}
+
+.modal-content {
+    background-color: #222;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #444;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 8px;
+    color: #fff;
+    position: relative;
+}
+
+.suggest-close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.suggest-close-btn:hover,
+.suggest-close-btn:focus {
+    color: #fff;
+    text-decoration: none;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #444;
+    background-color: #333;
+    color: #fff;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.mail-hint {
+    font-size: 12px;
+    color: #888;
+    margin-top: 10px;
