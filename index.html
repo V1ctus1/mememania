@@ -9,31 +9,33 @@
     <title>MemePublishing</title>  
     <link rel="stylesheet" href="css/style.css">   
 </head>  
-<body>  <header class="header-dark-style-centered">  
-    <div class="header-top-row">  
-          
-        <div class="header-left-area">  
-            <a class="site-title">MEME PUBLISHING</a>  
+<body>  <header class="header-dark-style-centered" id="home">
+    <div class="header-top-row">
+        <div class="header-left-area">
+            <a class="site-title">MEME PUBLISHING</a>
         </div>
 
-<div class="logo-center">  
-    <a href="#home" class="logo-text">#MEMEMANIA</a>  
-</div>  <div class="header-right-area">  
-<nav class="nav-links-dark">
-    <a href="#gallery-start">ГАЛЕРЕЯ</a>
-    <a href="#generator-start">ГЕНЕРАТОР</a>
-    <a href="#MemeSite" id="nav-about-link">О САЙТЕ</a>
-</nav>
-                </nav>  
-                <a href="#login" class="login-button-dark">ВОЙТИ</a>  
-            </div>  
-        </div>  <div class="header-search-container">  
-        <input type="text" id="meme-search" placeholder="Введите ключевое слово или тег для поиска...">  
-        <button id="search-btn">Искать</button>  
-        <div id="search-message" class="search-message">  
-            Совпадений не найдено. 🐦  
-        </div>  
-    </div>  
+        <div class="logo-center">
+           <a href="#home" class="logo-text">#MEMEMANIA</a>
+        </div>
+
+        <div class="header-right-area">
+            <nav class="nav-links-dark">
+                <a href="#gallery-start">ГАЛЕРЕЯ</a>
+                <a href="#generator-start">ГЕНЕРАТОР</a>
+                <a href="#MemeSite" id="nav-about-link">О САЙТЕ</a>
+            </nav>
+            <a href="#login" class="login-button-dark">ВОЙТИ</a>
+        </div>
+    </div>
+
+    <div class="header-search-container">
+        <input type="text" id="meme-search" placeholder="Введите ключевое слово или тег для поиска...">
+        <button id="search-btn">Искать</button>
+        <div id="search-message" class="search-message">
+            Совпадений не найдено. 🐦
+        </div>
+    </div>
 </header>  
 
 <section class="intro-section-dark">  
@@ -258,7 +260,7 @@
         </div>  
     </div>  
 </section>  
-  <script>
+ <script>
 document.addEventListener('DOMContentLoaded', () => {
 
     /* === УНИВЕРСАЛЬНАЯ ПЛАВНАЯ ПРОКРУТКА (ИСПРАВЛЕННЫЙ БЛОК) === */
